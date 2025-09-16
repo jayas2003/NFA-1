@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV - Jayas Permana</title>
+  <meta name="description" content="CV Jayas Permana - Mahasiswa Informatika">
+  <style>
+    :root{--accent:#fdb018;--muted:#6b7280;--card:#ffffff;--bg:#f3f4f6}
+    *{box-sizing:border-box}
+    body{font-family:Arial, Helvetica, sans-serif;background:var(--bg);margin:0;padding:28px;color:#111}
+    .container{max-width:980px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:24px}
+    .card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+    .avatar{width:160px;height:160px;border-radius:12px;object-fit:cover;margin-bottom:12px}
+    h1{font-size:22px;margin:4px 0}
+    p.role{color:var(--muted);margin:0 0 12px}
+    .info-list{width:100%;text-align:left}
+    .info-list dt{font-weight:700;margin-top:12px}
+    .info-list dd{margin:4px 0 0;color:var(--muted)}
+    .section-title{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .accent{width:10px;height:10px;background:var(--accent);border-radius:3px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:#fff7ed;border:1px solid rgba(0,0,0,0.03);padding:6px 10px;border-radius:999px;font-size:13px}
+    .content .about{margin-bottom:18px}
+    .edu-item,.exp-item{margin-bottom:12px}
+    .download{display:inline-block;margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--accent);color:#111;text-decoration:none;font-weight:700}
+    header, main, footer, aside, nav{outline: none}
+    /* responsive */
+    @media(max-width:760px){.container{grid-template-columns:1fr} .avatar{width:120px;height:120px}}
+  </style>
+</head>
+<body>
+  <header style="max-width:980px;margin:0 auto 18px;">
+    <nav aria-label="Navigasi CV">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:700">Curriculum Vitae</div>
+        <div style="color:var(--muted);font-size:13px">Dibuat oleh: Jayas Permana</div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <aside class="card profile" aria-labelledby="profile-heading">
+      <img class="avatar" src="gambar/jayas2.jpg" alt="Foto Jayas Permana">
+      <h1 id="profile-heading">Jayas Permana</h1>
+      <p class="role">Mahasiswa - Program Studi Informatika</p>
+
+      <dl class="info-list">
+        <dt>Nama</dt><dd>Jayas Permana</dd>
+        <dt>NIM</dt><dd>0110223070</dd>
+        <dt>Kampus</dt><dd>Sekolah Tinggi Teknologi Terpadu Nurul Fikri</dd>
+        <dt>Semester</dt><dd>5</dd>
+        <dt>Email</dt><dd><a href="mailto:jayas.permana@example.com">jayasciangsana@gmail.com</a></dd>
+        <dt>Telepon</dt><dd><a href="tel:+62812xxxxxxxx">+62 858-1474-8026</a></dd>
+      </dl>
+
+      <div style="margin-top:14px;width:100%">
+        <h2 style="font-size:14px;margin:0 0 8px">Keahlian</h2>
+        <div class="skills" role="list">
+          <span class="skill" role="listitem">HTML5</span>
+          <span class="skill" role="listitem">CSS3</span>
+          <span class="skill" role="listitem">JavaScript (Dasar)</span>
+          <span class="skill" role="listitem">Responsive Design</span>
+        </div>
+      </div>
+
+      <button class="download" onclick="window.print()">Cetak / Screenshot</button>
+    </aside>
+
+    <main class="card content" role="main">
+      <section class="about" aria-labelledby="about-heading">
+        <div class="section-title"><span class="accent" aria-hidden="true"></span><strong id="about-heading">Profil Singkat</strong></div>
+        <p>Saya, adalah mahasiswa Program Studi Informatika di STT Terpadu Nurul Fikri. Saat ini saya menempuh semester 5 dengan fokus pada bidang Rekayasa Perangkat Lunak (Software Engineering). Saya memiliki minat pada pengembangan aplikasi web, UI/UX, dan pengelolaan data. Saya juga sedang mempersiapkan diri untuk menyelesaikan studi tepat waktu (3,5 tahun) dengan pengalaman akademik, organisasi, dan proyek berbasis teknologi.</p>
+      </section>
+
+      <section aria-labelledby="edu-heading">
+        <div class="section-title"><span class="accent" aria-hidden="true"></span><strong id="edu-heading">Pendidikan</strong></div>
+        <div class="edu-item">
+          <div style="font-weight:700">S1 Informatika (Sedang Berjalan)</div>
+          <div style="color:var(--muted);font-size:14px">Nama Kampus: Sekolah Tinggi Teknologi Terpadu Nurul Fikri</div>
+          <div style="color:var(--muted);font-size:13px">Tahun Masuk: 2023</div>
+        </div>
+      </section>
+
+      <section aria-labelledby="exp-heading">
+        <div class="section-title"><span class="accent" aria-hidden="true"></span><strong id="exp-heading">Pengalaman / Kegiatan</strong></div>
+        <article class="exp-item" aria-labelledby="exp1">
+          <h3 id="exp1" style="margin:0;font-size:14px">Media Pemilihan Ketua TI 2023</h3>
+          <div style="color:var(--muted);font-size:13px">Feb 2024 - Des 2024</div>
+          <p style="margin-top:6px;color:var(--muted);">Membantu kegiatan dalam mendokumentasikan acara tersebut.</p>
+        </article>
+
+        <article class="exp-item" aria-labelledby="exp2">
+          <h3 id="exp2" style="margin:0;font-size:14px">Anggota Organisasi NFSS</h3>
+        </article>
+      </section>
+
+      <section aria-labelledby="port-heading">
+        <div class="section-title"><span class="accent" aria-hidden="true"></span><strong id="port-heading">Portofolio / Proyek</strong></div>
+        <ul style="margin:0 0 12px 18px;color:var(--muted)">
+          <li>Proyek Aplikasi Inventaris Barang Pondok Nahwa Nur (2024)</li>
+          <li>Website Hasil Tugas Kuliah (HTML5 & CSS3)</li>
+          <li>Proyek Frontend Pemantauan Data COVID-19 dengan React JS (2024)</li>
+          <li>Aplikasi Frontend Pemantauan Data Kesehatan Global dengan React & REST API (2025)</li>
+        </ul>
+      </section>
+      <br>
+
+  <footer style="max-width:980px;margin:20px auto;text-align:center;color:var(--muted);font-size:13px">
+    <p>Hak cipta &copy; 2025 — Jayas Permana • Program Studi Informatika</p>
+  </footer>
+</body>
+</html>
