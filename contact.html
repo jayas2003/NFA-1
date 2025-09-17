@@ -2,31 +2,32 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Home - Jayas Permana</title>
+    <title>Contact - Jayas Permana</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
 <header>
-    <body>
-    <div class="header-content">
-    <h1>Hai, Aku Jayas Permana 👋</h1>
-    <p>Mahasiswa Informatika | STT Terpadu Nurul Fikri</p>
+    <div class="header-container">
+        <img src="img/jayas1.jpeg" alt="Logo" class="logo">
+        <div class="header-text">
+            <h1>Contact</h1>
+            <p>Hubungi saya melalui kontak berikut</p>
+        </div>
     </div>
-    </body>
 </header>
 
 <nav>
     <ul class="nav-menu">
-        <li><a href="index.html">🏠Home</a></li>
-        <li><a href="gallery.html">🖼Gallery</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
 
 <div class="container">
-    <!-- SIDEBAR KIRI -->
     <aside class="left">
-        <fieldset>
+       <fieldset>
         <legend>👥 Sosial Media Teman</legend>
         <ul>
             <li><a href="https://www.instagram.com/sttnf_official/?igsh=MW10MmJwZ2Y2ZWw0aA%3D%3D#" target="_blank">Stt NF - Istagram</a></li>
@@ -37,21 +38,30 @@
         </fieldset>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <body>
-    <div class="profile-card">
-        <img src="img/jayas2.jpg" alt="Foto Profil">
-        <h2>Jayas Permana</h2>
-        <p>Mahasiswa Informatika | Sekolah Tinggi Teknologi Terpadu Nurul Fikri</p>
+    <main class="main">
+        <h2>Form Kontak</h2>
+        <p>Silakan hubungi saya melalui email atau telepon berikut:</p>
+        <ul>
+            <li>Email: <a href="mailto:jayasciangsana@gmail.com">jayasciangsana@gmail.com</a></li>
+            <li>Telepon: +62 812-3456-7890</li>
+        </ul>
 
-        <div class="info">
-            <p>📧 <span>Email:</span> jayasciangsana@gmail.com</p>
-            <p>📱 <span>Telepon:</span> +62 812-3456-7890</p>
-            <p>🎓 <span>Pendidikan:</span> Semester 5, Informatika</p>
-            <p>💻 <span>Skill:</span> HTML, CSS, JavaScript, PHP</p>
-        </div>
-    </div>
-</body>
+        <section class="content-section">
+            <h3>Form Kirim Pesan</h3>
+            <form action="#" method="post">
+                <label for="name">Nama:</label><br>
+                <input type="text" id="name" name="name" placeholder="Nama Anda" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="Email Anda" required><br><br>
+
+                <label for="message">Pesan:</label><br>
+                <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda" required></textarea><br><br>
+
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+    </main>
 
     <!-- SIDEBAR KANAN (Materi Fullstack) -->
      <fieldset>
