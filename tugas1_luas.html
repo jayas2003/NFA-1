@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tugas 1 - Menghitung Luas (Jayas Permana)</title>
+  <style>
+    body { font-family: system-ui, Arial; padding: 24px; max-width: 760px; margin: auto; }
+    input[type="number"] { width: 120px; padding: 6px; margin-right: 8px; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+    .row { display:flex; gap:8px; align-items:center; margin-bottom:8px; flex-wrap:wrap; }
+    button { padding:8px 12px; border-radius:6px; cursor:pointer; }
+    pre { background:#f7f7f7; padding:12px; border-radius:6px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <h1>Hitung LUAS — Persegi Panjang, Bujur Sangkar, Segitiga</h1>
+  <p>Versi interaktif tugas. Isi nilai — lalu klik <strong>Hitung</strong>.</p>
+
+  <div class="card">
+    <h3>Persegi Panjang</h3>
+    <div class="row">
+      <label>Panjang: <input id="pp_panjang" type="number" min="0" step="any" value="10"></label>
+      <label>Lebar: <input id="pp_lebar" type="number" min="0" step="any" value="5"></label>
+      <button id="hitung_pp">Hitung Luas Persegi Panjang</button>
+    </div>
+
+    <h3>Bujur Sangkar</h3>
+    <div class="row">
+      <label>Sisi: <input id="bs_sisi" type="number" min="0" step="any" value="7"></label>
+      <button id="hitung_bs">Hitung Luas Bujur Sangkar</button>
+    </div>
+
+    <h3>Segitiga</h3>
+    <div class="row">
+      <label>Alas: <input id="sg_alas" type="number" min="0" step="any" value="8"></label>
+      <label>Tinggi: <input id="sg_tinggi" type="number" min="0" step="any" value="6"></label>
+      <button id="hitung_sg">Hitung Luas Segitiga</button>
+    </div>
+
+    <hr>
+
+    <button id="hitung_semua">Hitung Semua Sekaligus</button>
+    <button id="bersihkan">Bersihkan Hasil</button>
+
+    <h3>Hasil</h3>
+    <div id="hasil"></div>
+  </div>
+
+  <h3>Catatan / Penjelasan (Komentar di setiap fungsi)</h3>
+  <pre>
+// Fungsi luasPersegiPanjang(panjang, lebar)
+// Mengembalikan nilai luas persegi panjang berdasarkan rumus:
+// luas = panjang × lebar
+function luasPersegiPanjang(panjang, lebar) { ... }
+
+// Fungsi luasBujurSangkar(sisi)
+// Mengembalikan nilai luas bujur sangkar berdasarkan rumus:
+// luas = sisi × sisi
+function luasBujurSangkar(sisi) { ... }
+
+// Fungsi luasSegitiga(alas, tinggi)
+// Mengembalikan nilai luas segitiga berdasarkan rumus:
+// luas = 1/2 × alas × tinggi
+function luasSegitiga(alas, tinggi) { ... }
+  </pre>
+
+  <script>
+    // ------------------------------
+    // Fungsi perhitungan (dengan komentar agar mudah dijelaskan ke mentor)
+    // ------------------------------
+    // Menghitung luas persegi panjang
+    // Parameter:
+    //   panjang: angka (bisa desimal)
+    //   lebar: angka (bisa desimal)
+    // Return: angka hasil perkalian panjang * lebar
+    function luasPersegiPanjang(panjang, lebar) {
+      return Number(panjang) * Number(lebar);
+    }
+
+    // Menghitung luas bujur sangkar
+    // Rumus sederhana: sisi * sisi
+    function luasBujurSangkar(sisi) {
+      return Number(sisi) * Number(sisi);
+    }
+
+    // Menghitung luas segitiga
+    // Rumus: 0.5 * alas * tinggi
+    function luasSegitiga(alas, tinggi) {
+      return 0.5 * Number(alas) * Number(tinggi);
+    }
+
+    // ------------------------------
+    // Helper untuk menampilkan hasil
+    // ------------------------------
+    function tulisHasil(html) {
+      document.getElementById('hasil').innerHTML += html;
+    }
+
+    function resetHasil() {
+      document.getElementById('hasil').innerHTML = '';
+    }
+
+    // ------------------------------
+    // Event listeners tombol
+    // ------------------------------
+    document.getElementById('hitung_pp').addEventListener('click', function() {
+      const p = document.getElementById('pp_panjang').value;
+      const l = document.getElementById('pp_lebar').value;
+      if (p === '' || l === '') return alert('Isi panjang dan lebar terlebih dahulu');
+      const result = luasPersegiPanjang(p, l);
+      tulisHasil(`<p>Persegi Panjang (${p} × ${l}) = <strong>${result}</strong></p>`);
+      console.log('Luas Persegipanjang:', result);
+    });
+
+    document.getElementById('hitung_bs').addEventListener('click', function() {
+      const s = document.getElementById('bs_sisi').value;
+      if (s === '') return alert('Isi sisi terlebih dahulu');
+      const result = luasBujurSangkar(s);
+      tulisHasil(`<p>Bujur Sangkar (s=${s}) = <strong>${result}</strong></p>`);
+      console.log('Luas Bujur Sangkar:', result);
+    });
+
+    document.getElementById('hitung_sg').addEventListener('click', function() {
+      const a = document.getElementById('sg_alas').value;
+      const t = document.getElementById('sg_tinggi').value;
+      if (a === '' || t === '') return alert('Isi alas dan tinggi terlebih dahulu');
+      const result = luasSegitiga(a, t);
+      tulisHasil(`<p>Segitiga (½ × ${a} × ${t}) = <strong>${result}</strong></p>`);
+      console.log('Luas Segitiga:', result);
+    });
+
+    document.getElementById('hitung_semua').addEventListener('click', function() {
+      resetHasil();
+      document.getElementById('hitung_pp').click();
+      document.getElementById('hitung_bs').click();
+      document.getElementById('hitung_sg').click();
+    });
+
+    document.getElementById('bersihkan').addEventListener('click', function() {
+      resetHasil();
+    });
+  </script>
+</body>
+</html>
