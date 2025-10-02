@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Manajemen Produk</title>
+  <style>
+    /* === Global Style === */
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f4f7fc;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    #output {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      min-height: 100px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    #output li {
+      list-style: none;
+      padding: 10px;
+      margin: 8px 0;
+      background: #fff;
+      border-left: 5px solid #4a90e2;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+    #output li:hover {
+      transform: translateX(5px);
+      background: #f0f7ff;
+    }
+
+    form {
+      margin: 15px 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #fdfdfd;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    form input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    form input:focus {
+      border-color: #4a90e2;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4a90e2, #357ABD);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #357ABD, #2a5d99);
+      transform: translateY(-2px);
+    }
+
+    /* === Dark Mode === */
+    body.dark {
+      background: #181818;
+      color: #eee;
+    }
+
+    body.dark h1, body.dark h2 {
+      color: #f5f5f5;
+    }
+
+    body.dark #output {
+      background: #242424;
+    }
+
+    body.dark #output li {
+      background: #2c2c2c;
+      border-left: 5px solid #90caf9;
+    }
+
+    body.dark form {
+      background: #2c2c2c;
+    }
+
+    #btn-dark {
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sistem Manajemen Produk</h1>
+  <div class="container">
+    <button id="btn-dark">🌙 Toggle Dark Mode</button>
+
+    <h2>Daftar Produk</h2>
+    <ul id="output"></ul>
+
+    <h3>Tambah Produk</h3>
+    <form id="formTambah">
+      <input type="text" id="idProduk" placeholder="ID Produk" required>
+      <input type="text" id="namaProduk" placeholder="Nama Produk" required>
+      <input type="number" id="hargaProduk" placeholder="Harga Produk" required>
+      <button type="submit">Tambah</button>
+    </form>
+
+    <h3>Hapus Produk</h3>
+    <form id="formHapus">
+      <input type="text" id="hapusId" placeholder="ID Produk (pisahkan dengan koma)" required>
+      <button type="submit">Hapus</button>
+    </form>
+  </div>
+
+  <script>
+    // === Data Awal Produk ===
+    let produkList = [
+      { id: "P01", nama: "Laptop", harga: 10000000 },
+      { id: "P02", nama: "Smartphone", harga: 5000000 },
+      { id: "P03", nama: "Headphone", harga: 750000 },
+      { id: "P04", nama: "Keyboard", harga: 300000 },
+      { id: "P05", nama: "Monitor", harga: 2000000 }
+    ];
+
+    // === Tampilkan Produk (Destructuring) ===
+    function tampilkanProduk() {
+      const output = document.getElementById("output");
+      output.innerHTML = "";
+      for (let { id, nama, harga } of produkList) {
+        let li = document.createElement("li");
+        li.textContent = `${id} - ${nama} (Rp ${harga.toLocaleString("id-ID")})`;
+        output.appendChild(li);
+      }
+    }
+
+    // === Tambah Produk (Spread Operator) ===
+    function tambahProduk(id, nama, harga) {
+      if (produkList.some(p => p.id === id)) {
+        alert("❌ ID produk sudah ada, gunakan ID lain!");
+        return;
+      }
+      if (!nama || !harga) {
+        alert("❌ Nama dan harga produk wajib diisi!");
+        return;
+      }
+
+      const produkBaru = { id, nama, harga: Number(harga) };
+      produkList = [...produkList, produkBaru];
+      alert("✅ Produk berhasil ditambahkan.");
+      tampilkanProduk();
+    }
+
+    // === Hapus Produk (Rest Parameter) ===
+    function hapusProduk(...id) {
+      const before = produkList.length;
+      produkList = produkList.filter(item => !id.includes(item.id));
+
+      if (produkList.length === before) {
+        alert("⚠️ Produk dengan ID tersebut tidak ditemukan.");
+      } else {
+        alert("✅ Produk berhasil dihapus.");
+      }
+      tampilkanProduk();
+    }
+
+    // === Event Listener Form Tambah ===
+    document.getElementById("formTambah").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = document.getElementById("idProduk").value.trim();
+      const nama = document.getElementById("namaProduk").value.trim();
+      const harga = document.getElementById("hargaProduk").value.trim();
+      tambahProduk(id, nama, harga);
+      e.target.reset();
+    });
+
+    // === Event Listener Form Hapus ===
+    document.getElementById("formHapus").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const ids = document.getElementById("hapusId").value.split(",").map(s => s.trim());
+      hapusProduk(...ids);
+      e.target.reset();
+    });
+
+    // === Dark Mode Toggle ===
+    document.getElementById("btn-dark").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+
+    // === Tampilkan awal ===
+    tampilkanProduk();
+  </script>
+</body>
+</html>

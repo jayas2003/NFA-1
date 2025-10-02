@@ -1,0 +1,223 @@
+/* ===== Import Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* ===== Global ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: linear-gradient(135deg, #bfcb11, #1c3ac0); /* ungu → biru */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #fff !important;
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+  transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffdd57 !important; /* efek emas saat hover */
+  transform: scale(1.05);
+}
+
+/* ===== Carousel / Banner ===== */
+.carousel-item {
+  max-height: 400px;  /* lebih tinggi */
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* ===== Sidebar Links ===== */
+aside h5 {
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #2575fc;
+}
+
+.list-group-item {
+  border: none;
+  padding: 12px;
+  transition: 0.3s;
+}
+
+.list-group-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.list-group-item:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.list-group-item:hover a {
+  color: #fff;
+}
+
+/* ===== Iframe Content ===== */
+iframe {
+  border: none;
+  min-height: 500px;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  iframe {
+    min-height: 350px;
+  }
+}
+
+/* ===== Footer ===== */
+footer {
+  background: linear-gradient(135deg, #2575fc, #6a11cb); /* biru → ungu */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 30px;
+  box-shadow: 0 -3px 6px rgba(0,0,0,0.2);
+}
+
+footer a {
+  color: #ffdd57;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* ===== PROFILE CARD ===== */
+.profile-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #4A90E2;
+}
+
+.profile-card p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+.profile-card p strong {
+    color: #222;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Smooth Scroll ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Fade-in Animation ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Hover Effect untuk Gambar Gallery ===== */
+.card img {
+  border-radius: 10px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+/* ===== Tabel Lebih Elegan ===== */
+.table thead {
+  background: linear-gradient(135deg, #1c3ac0, #6a11cb);
+  color: #fff;
+}
+
+.table tbody tr:hover {
+  background-color: #f0f6ff;
+  transition: 0.3s;
+}
+
+/* ===== Tombol Login & Umum ===== */
+.btn-primary {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1c3ac0, #4e0f99);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== Carousel Controls Lebih Jelas ===== */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 50% 50%; /* kecilkan ikon biar rapi */
+  background-color: rgba(0, 0, 0, 0.6); /* bulat hitam transparan */
+  border-radius: 50%;
+  padding: 20px; /* biar tombol gede dan mudah diklik */
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: rgba(255, 215, 0, 0.8); /* hover jadi emas */
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+
